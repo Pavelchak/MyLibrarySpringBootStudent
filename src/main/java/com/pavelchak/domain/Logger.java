@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name = "logger")
 public class Logger implements EntityInterface {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "logger_id", nullable = false)
     private Long id;
 

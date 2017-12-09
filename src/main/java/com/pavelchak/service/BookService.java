@@ -21,30 +21,33 @@ public class BookService {
     PersonRepository personRepository;
 
     public Set<Book> getBooksByPersonId(Long person_id) throws NoSuchPersonException {
-        Person person = personRepository.findOne(person_id);
-        if(person ==null) throw new NoSuchPersonException();
+//        Person person = personRepository.findOne(person_id);//1.5.9
+        Person person = personRepository.findById(person_id).get();//2.0.0.M7
+        if (person == null) throw new NoSuchPersonException();
         return person.getBooks();
     }
 
     public Book getBook(Long book_id) throws NoSuchBookException {
-        Book book =bookRepository.findOne(book_id);
-        if(book ==null) throw new NoSuchBookException();
+//        Book book = bookRepository.findOne(book_id);//1.5.9
+        Book book = bookRepository.findById(book_id).get();//2.0.0.M7
+        if (book == null) throw new NoSuchBookException();
         return book;
     }
 
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
     @Transactional
-    public void createBook(Book book)  {
+    public void createBook(Book book) {
         bookRepository.save(book);
     }
 
     @Transactional
     public void updateBook(Book uBook, Long book_id) throws NoSuchBookException {
-        Book book = bookRepository.findOne(book_id);
-        if(book ==null) throw new NoSuchBookException();
+//        Book book = bookRepository.findOne(book_id);//1.5.9
+        Book book = bookRepository.findById(book_id).get();//2.0.0.M7
+        if (book == null) throw new NoSuchBookException();
         //update
         book.setBookName(uBook.getBookName());
         book.setAuthor(uBook.getAuthor());
@@ -55,9 +58,11 @@ public class BookService {
 
     @Transactional
     public void deleteBook(Long book_id) throws NoSuchBookException, ExistsPersonForBookException {
-        Book book =bookRepository.findOne(book_id);
-        if(book ==null) throw new NoSuchBookException();
-        if(book.getPersons().size()!=0) throw new ExistsPersonForBookException();
+//        Book book = bookRepository.findOne(book_id);//1.5.9
+        Book book = bookRepository.findById(book_id).get();//2.0.0.M7
+
+        if (book == null) throw new NoSuchBookException();
+        if (book.getPersons().size() != 0) throw new ExistsPersonForBookException();
         bookRepository.delete(book);
     }
 

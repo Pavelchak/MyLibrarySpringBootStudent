@@ -8,7 +8,7 @@ import java.util.*;
 @Table(name = "book")
 public class Book implements EntityInterface{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id", nullable = false)
     private Long id;
 

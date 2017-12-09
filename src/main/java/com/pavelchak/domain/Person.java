@@ -9,7 +9,7 @@ import java.util.*;
 @Table(name = "person")
 public class Person implements EntityInterface {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id", nullable = false)
     private Long id;
 

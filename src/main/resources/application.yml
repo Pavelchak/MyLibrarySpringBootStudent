@@ -10,5 +10,5 @@ spring:
       ddl-auto: validate
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
 
-server:
-  port: 9000
+#server:
+#  port: 9000
