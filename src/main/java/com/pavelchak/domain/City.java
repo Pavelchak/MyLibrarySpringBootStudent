@@ -49,12 +49,9 @@ public class City implements EntityInterface {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         City that = (City) o;
-
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
-
         return true;
     }
 

@@ -75,16 +75,13 @@ public class Logger implements EntityInterface {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Logger that = (Logger) o;
-
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (person != null ? !person.equals(that.person) : that.person != null) return false;
         if (book != null ? !book.equals(that.book) : that.book != null) return false;
         if (action != null ? !action.equals(that.action) : that.action != null) return false;
         if (timeStamp != null ? !timeStamp.equals(that.timeStamp) : that.timeStamp != null) return false;
         if (user != null ? !user.equals(that.user) : that.user != null) return false;
-
         return true;
     }
 

@@ -92,16 +92,13 @@ public class Book implements EntityInterface{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Book that = (Book) o;
-
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (bookName != null ? !bookName.equals(that.bookName) : that.bookName != null) return false;
         if (author != null ? !author.equals(that.author) : that.author != null) return false;
         if (publisher != null ? !publisher.equals(that.publisher) : that.publisher != null) return false;
         if (imprintYear != null ? !imprintYear.equals(that.imprintYear) : that.imprintYear != null) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
-
         return true;
     }
 
@@ -115,5 +112,4 @@ public class Book implements EntityInterface{
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
     }
-
 }
